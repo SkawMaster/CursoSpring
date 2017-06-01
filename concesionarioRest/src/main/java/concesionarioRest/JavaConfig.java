@@ -1,5 +1,7 @@
 package concesionarioRest;
 
+import java.util.Properties;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -29,7 +31,7 @@ public class JavaConfig {
 	@Bean
 	public DataSource dataSource (){
 		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setUrl("jdbc:derby://localhost:1527/concesionario;create=false");
+		basicDataSource.setUrl("jdbc:derby://localhost:1527/concesionario;create=true");
 		basicDataSource.setUsername("admin");
 		basicDataSource.setPassword("admin");
 		basicDataSource.setDriverClassName("org.apache.derby.jdbc.ClientDriver40");
@@ -45,6 +47,15 @@ public class JavaConfig {
 		entityManagerFactoryBean.setDataSource(dataSource);
 		
 		entityManagerFactoryBean.setPackagesToScan("com.atsistemas.entidades");
+		
+		Properties properties = new Properties();
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.format_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.default_schema", "concesionario");
+		
+		entityManagerFactoryBean.setJpaProperties(properties);
 		
 		return(entityManagerFactoryBean);
 	}

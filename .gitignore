@@ -1,3 +1,5 @@
+.metadata
+.recommenders
 target/
 .settings
 .classpath
