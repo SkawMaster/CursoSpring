@@ -1,4 +1,4 @@
-package com.atsistemas.concesionario.entitades;
+package com.atsistemas.concesionario.entidades;
 
 /**
  * Define los tipos de estados de una factura

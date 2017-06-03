@@ -1,46 +1,52 @@
-package com.atsistemas.concesionario.entitades;
+package com.atsistemas.concesionario.entidades;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-public class Cliente implements Serializable {
+@Entity
+public class Comercial implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1285447290733009558L;
+	private static final long serialVersionUID = 1259857019185045064L;
 
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column
 	private String nombre;
-	
+
 	@Column
 	private String correo;
-	
+
 	@Column
 	private String telefono;
-	
+
+	@OneToMany
+	private List<Cliente> clientes;
+
 	@OneToMany
 	private List<Pedido> pedidos;
 
-	public Cliente() {
+	public Comercial() {
 		super();
 	}
 
-	public Cliente(long id, String nombre, String correo, String telefono, List<Pedido> pedidos) {
+	public Comercial(long id, String nombre, String correo, String telefono, List<Cliente> clientes, List<Pedido> pedidos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.correo = correo;
 		this.telefono = telefono;
+		this.clientes = clientes;
 		this.pedidos = pedidos;
 	}
 
@@ -76,6 +82,14 @@ public class Cliente implements Serializable {
 		this.telefono = telefono;
 	}
 
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
 	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
@@ -88,6 +102,7 @@ public class Cliente implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((clientes == null) ? 0 : clientes.hashCode());
 		result = prime * result + ((correo == null) ? 0 : correo.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
@@ -104,7 +119,12 @@ public class Cliente implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Comercial other = (Comercial) obj;
+		if (clientes == null) {
+			if (other.clientes != null)
+				return false;
+		} else if (!clientes.equals(other.clientes))
+			return false;
 		if (correo == null) {
 			if (other.correo != null)
 				return false;
@@ -132,7 +152,8 @@ public class Cliente implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono
-				+ ", pedidos=" + pedidos + "]";
+		return "Comercial [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono
+				+ ", clientes=" + clientes + ", pedidos=" + pedidos + "]";
 	}
+
 }

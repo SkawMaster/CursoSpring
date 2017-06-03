@@ -9,12 +9,12 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.atsistemas.concesionario.entitades.Cliente;
-import com.atsistemas.concesionario.entitades.Comercial;
-import com.atsistemas.concesionario.entitades.EstadoPedido;
-import com.atsistemas.concesionario.entitades.Factura;
-import com.atsistemas.concesionario.entitades.Pedido;
-import com.atsistemas.concesionario.entitades.Vehiculo;
+import com.atsistemas.concesionario.entidades.Cliente;
+import com.atsistemas.concesionario.entidades.Comercial;
+import com.atsistemas.concesionario.entidades.EstadoPedido;
+import com.atsistemas.concesionario.entidades.Factura;
+import com.atsistemas.concesionario.entidades.Pedido;
+import com.atsistemas.concesionario.entidades.Vehiculo;
 
 public class ClienteTest {
 

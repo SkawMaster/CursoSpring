@@ -1,4 +1,4 @@
-package com.atsistemas.concesionario.entitades;
+package com.atsistemas.concesionario.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,7 +9,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;

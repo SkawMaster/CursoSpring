@@ -1,4 +1,4 @@
-package concesionarioRest;
+package com.atsistemas.concesionario.concesionarioRest;
 
 import java.util.Properties;
 
