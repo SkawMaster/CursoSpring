@@ -1,7 +1,16 @@
 package com.atsistemas.concesionario.interfaces.persistencia;
 
-import com.atsistemas.concesionario.interfaces.servicios.VehiculoServicio;
+import java.util.List;
 
-public interface VehiculoDao extends VehiculoServicio {
+import com.atsistemas.concesionario.entidades.Vehiculo;
 
+public interface VehiculoDao {
+
+	public long save(Vehiculo vehiculo);
+
+	public long delete(long idVehiculo);
+
+	public Vehiculo findOne(long id);
+
+	public List<Vehiculo> findAll();
 }

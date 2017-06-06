@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.atsistemas.concesionarioRest</groupId>
+	<groupId>com.atsistemas.concesionario.concesionarioRest</groupId>
 	<artifactId>concesionarioRest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ConcesionarioRest</name>
@@ -61,13 +61,33 @@
 			<version>10.13.1.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.atsistemas.concesionarioRest.interfaces</groupId>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atsistemas.concesionario.interfaces</groupId>
 			<artifactId>Interfaces</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.atsistemas.concesionarioRest.persistencia</groupId>
+			<groupId>com.atsistemas.concesionario.persistencia</groupId>
 			<artifactId>Persistencia</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atsistemas.concesionario.servicios</groupId>
+			<artifactId>Servicios</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atsistemas.concesionario.controladores</groupId>
+			<artifactId>Controladores</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

@@ -28,7 +28,7 @@ public class FacturaTest {
 
 	@Before
 	public void inicializarTest() throws ParseException {
-		facturaTest = new Factura(01l, new Date(), new BigDecimal(0), new Pedido(), EstadoFactura.NO_COBRADA);
+		facturaTest = new Factura(01l, new Date(), 0f, new Pedido(), EstadoFactura.NO_COBRADA);
 		pedidoTest = new Pedido(01l, new Cliente(), new Comercial(), new Vehiculo(), new Date(), EstadoPedido.SIN_STOCK,
 				new Factura());
 		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -77,8 +77,8 @@ public class FacturaTest {
 
 	@Test
 	public final void testSetTotal() {
-		facturaTest.setTotal(new BigDecimal(100));
-		assertTrue(100 == facturaTest.getTotal().intValueExact());
+		facturaTest.setTotal(100f);
+		assertTrue(100f == facturaTest.getTotal());
 	}
 
 	@Test

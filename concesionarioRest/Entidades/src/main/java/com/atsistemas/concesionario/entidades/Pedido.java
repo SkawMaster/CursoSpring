@@ -31,7 +31,7 @@ public class Pedido implements Serializable {
 	@ManyToOne
 	private Comercial comercial;
 	
-	@OneToMany
+	@ManyToOne
 	private Vehiculo vehiculo;
 	
 	@Column
@@ -40,7 +40,7 @@ public class Pedido implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private EstadoPedido estado;
 	
-	@OneToOne(mappedBy = "factura")
+	@OneToOne
 	private Factura factura;
 
 	public Pedido() {

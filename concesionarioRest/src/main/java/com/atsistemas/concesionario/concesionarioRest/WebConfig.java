@@ -14,15 +14,16 @@ public class WebConfig implements WebApplicationInitializer {
 		
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 		
-		context.setConfigLocation("com.atsistemas.concesionarioRest");
+		context.setConfigLocation("com.atsistemas.concesionario.concesionarioRest");
 		
 		DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
 		
-		Dynamic addServlet = servletContext.addServlet("/", dispatcherServlet);
+		Dynamic addServlet = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
 		
 		addServlet.setLoadOnStartup(1);
-		addServlet.addMapping("/");
+		addServlet.addMapping("/concesionario");
 		
+		org.apache.log4j.BasicConfigurator.configure();
 	}
 
 }

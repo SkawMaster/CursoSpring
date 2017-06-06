@@ -6,11 +6,11 @@ import com.atsistemas.concesionario.entidades.Vehiculo;
 
 public interface VehiculoServicio {
 
-	public long alta();
+	public long alta(Vehiculo vehiculo);
 	
-	public long baja();
+	public long baja(long idVehiculo);
 	
-	public long modificacion();
+	public long modificacion(Vehiculo vehiculo);
 	
 	public Vehiculo consultaPorId(long id);
 	

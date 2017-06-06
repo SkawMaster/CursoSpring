@@ -3,7 +3,6 @@ package com.atsistemas.concesioario.entidades.test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class PedidoTest {
 		comercialTest = new Comercial(01l, "Luis Miguel Miralles Albero", "lmma@lol.juas", "900000000000",
 				listaClientesTest, null);
 		vehiculoTest = new Vehiculo(01l, "Coche fantástico", "Trans Am Firebird", "Negro", "5700CC", 20000f);
-		facturaTest = new Factura(01l, new Date(), new BigDecimal(0), new Pedido(), EstadoFactura.NO_COBRADA);
+		facturaTest = new Factura(01l, new Date(), 0f, new Pedido(), EstadoFactura.NO_COBRADA);
 
 		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		fechaTest = simpleDateFormat.parse("1981-04-13 00:12");

@@ -1,7 +1,6 @@
 package com.atsistemas.concesionario.entidades;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -28,7 +27,7 @@ public class Factura implements Serializable {
 	private Date fecha;
 	
 	@Column
-	private BigDecimal total;
+	private float total;
 	
 	@OneToOne
 	private Pedido pedido;
@@ -40,7 +39,7 @@ public class Factura implements Serializable {
 		super();
 	}
 
-	public Factura(long id, Date fecha, BigDecimal total, Pedido pedido, EstadoFactura estado) {
+	public Factura(long id, Date fecha, float total, Pedido pedido, EstadoFactura estado) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
@@ -65,12 +64,12 @@ public class Factura implements Serializable {
 		this.fecha = fecha;
 	}
 
-	public BigDecimal getTotal() {
+	public float getTotal() {
 		return total;
 	}
 
-	public void setTotal(BigDecimal total) {
-		this.total = total;
+	public void setTotal(float f) {
+		this.total = f;
 	}
 
 	public Pedido getPedido() {
@@ -97,7 +96,7 @@ public class Factura implements Serializable {
 		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((pedido == null) ? 0 : pedido.hashCode());
-		result = prime * result + ((total == null) ? 0 : total.hashCode());
+		result = prime * result + Float.floatToIntBits(total);
 		return result;
 	}
 
@@ -124,10 +123,7 @@ public class Factura implements Serializable {
 				return false;
 		} else if (!pedido.equals(other.pedido))
 			return false;
-		if (total == null) {
-			if (other.total != null)
-				return false;
-		} else if (!total.equals(other.total))
+		if (Float.floatToIntBits(total) != Float.floatToIntBits(other.total))
 			return false;
 		return true;
 	}
