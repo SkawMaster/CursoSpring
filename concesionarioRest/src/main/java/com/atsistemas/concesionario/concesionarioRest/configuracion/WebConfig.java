@@ -1,4 +1,4 @@
-package com.atsistemas.concesionario.concesionarioRest;
+package com.atsistemas.concesionario.concesionarioRest.configuracion;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ public class WebConfig implements WebApplicationInitializer {
 		Dynamic addServlet = servletContext.addServlet("dispatcherServlet", dispatcherServlet);
 		
 		addServlet.setLoadOnStartup(1);
-		addServlet.addMapping("/concesionario");
+		addServlet.addMapping("/concesionario/*");
 		
 		org.apache.log4j.BasicConfigurator.configure();
 	}

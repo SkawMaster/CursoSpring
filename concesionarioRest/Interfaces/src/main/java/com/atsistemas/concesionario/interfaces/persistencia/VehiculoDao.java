@@ -6,7 +6,7 @@ import com.atsistemas.concesionario.entidades.Vehiculo;
 
 public interface VehiculoDao {
 
-	public long save(Vehiculo vehiculo);
+	public Vehiculo save(Vehiculo vehiculo);
 
 	public long delete(long idVehiculo);
 

@@ -16,7 +16,7 @@ public class ServicioVehiculo implements VehiculoServicio {
 	private VehiculoDao vehiculoDao;
 
 	public long alta(Vehiculo vehiculo) {
-		return vehiculoDao.save(vehiculo);
+		return ((Vehiculo)vehiculoDao.save(vehiculo)).getId();
 	}
 
 	public long baja(long idVehiculo) {
@@ -24,7 +24,7 @@ public class ServicioVehiculo implements VehiculoServicio {
 	}
 
 	public long modificacion(Vehiculo vehiculo) {
-		return vehiculoDao.save(vehiculo);
+		return ((Vehiculo)vehiculoDao.save(vehiculo)).getId();
 	}
 
 	public Vehiculo consultaPorId(long id) {

@@ -1,4 +1,4 @@
-package com.atsistemas.concesionario.concesionarioRest;
+package com.atsistemas.concesionario.concesionarioRest.configuracion;
 
 import java.util.Properties;
 
@@ -52,10 +52,8 @@ public class JavaConfig {
 		
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		
-		entityManagerFactoryBean.setDataSource(dataSource);
-		
-		entityManagerFactoryBean.setPackagesToScan("com.atsistemas.concesionario.entidades");
-		
+		entityManagerFactoryBean.setDataSource(dataSource);		
+		entityManagerFactoryBean.setPackagesToScan("com.atsistemas.concesionario.entidades");		
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		
 		Properties properties = new Properties();
