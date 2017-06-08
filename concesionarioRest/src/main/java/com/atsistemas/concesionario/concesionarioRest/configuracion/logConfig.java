@@ -6,9 +6,11 @@ import org.springframework.aop.interceptor.CustomizableTraceInterceptor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 @Configuration
+@EnableAspectJAutoProxy
 public class logConfig {
 	
 	// Logeo de peticiones
@@ -32,12 +34,14 @@ public class logConfig {
 
 	// Interceptor que monitoriza las llamadas a todas las clases del paquete
 	// com.atsistemas.concesionario y todas sus subclases
+	// Necesita las dependencias de cglib aspectjweaver
 	@Bean
 	public Advisor traceAdvisor() {
 		AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-		pointcut.setExpression("execution(public * com.atsistemas.concesionario..*.*(..))");
+		// execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-pattern(param-pattern) throws-pattern?)
+		// pointcut.setExpression("execution(public * *(..))");
+		// pointcut.setExpression("execution(public com.ats.test.*.*(..))");
+		pointcut.setExpression("within(com.atsistemas.concesionario..*)");
 		return new DefaultPointcutAdvisor(pointcut, customizableTraceInterceptor());
 	}
-	
-	
 }
