@@ -6,7 +6,7 @@ import com.atsistemas.concesionario.entidades.Factura;
 
 public interface FacturaDao {
 
-	public long save(Factura factura);
+	public Factura save(Factura factura);
 
 	public long delete(long idFactura);
 

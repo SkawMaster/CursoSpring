@@ -31,7 +31,7 @@ public class ServicioPedido implements PedidoServicio {
 	}
 
 	public long lanzarNuevoPedido(Pedido pedido) {
-		return pedidoDao.save(pedido);
+		return ((Pedido)pedidoDao.save(pedido)).getId();
 	}
 
 	public EstadoPedido seguimientoDePedido(long id) {
@@ -51,7 +51,7 @@ public class ServicioPedido implements PedidoServicio {
 				factura.setPedido(pedido);
 				factura.setTotal(pedido.getVehiculo().getPrecio());
 
-				factura.setId(facturaDao.save(factura));
+				factura.setId(((Factura)facturaDao.save(factura)).getId());
 
 				if (factura.getId() == 0) {
 					return new long[] { 0, 0 };

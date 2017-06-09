@@ -6,7 +6,7 @@ import com.atsistemas.concesionario.entidades.Cliente;
 
 public interface ClienteDao {
 
-	public long save(Cliente cliente);
+	public Cliente save(Cliente cliente);
 
 	public long delete(long idCliente);
 	

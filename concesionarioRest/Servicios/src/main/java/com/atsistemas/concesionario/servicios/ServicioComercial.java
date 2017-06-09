@@ -11,7 +11,7 @@ public class ServicioComercial implements ComercialServicio {
 	private ComercialDao comercialDao;
 
 	public long alta(Comercial comercial) {
-		return comercialDao.save(comercial);
+		return ((Comercial)comercialDao.save(comercial)).getId();
 	}
 
 	public long baja(long idComercial) {
@@ -19,7 +19,7 @@ public class ServicioComercial implements ComercialServicio {
 	}
 
 	public long modificacion(Comercial comercial) {
-		return comercialDao.save(comercial);
+		return ((Comercial)comercialDao.save(comercial)).getId();
 	}
 
 	public Comercial consultaPorId(long id) {

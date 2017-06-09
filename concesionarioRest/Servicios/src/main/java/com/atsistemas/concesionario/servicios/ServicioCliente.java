@@ -11,7 +11,7 @@ public class ServicioCliente implements ClienteServicio {
 	private ClienteDao clienteDao;
 
 	public long alta(Cliente cliente) {
-		return clienteDao.save(cliente);
+		return ((Cliente)clienteDao.save(cliente)).getId();
 	}
 
 	public long baja(long idCliente) {
@@ -19,7 +19,7 @@ public class ServicioCliente implements ClienteServicio {
 	}
 
 	public long modificacion(Cliente cliente) {
-		return clienteDao.save(cliente);
+		return ((Cliente)clienteDao.save(cliente)).getId();
 	}
 
 	public Cliente consultaPorId(long id) {

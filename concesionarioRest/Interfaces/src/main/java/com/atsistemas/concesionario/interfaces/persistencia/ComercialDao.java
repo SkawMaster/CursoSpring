@@ -6,7 +6,7 @@ import com.atsistemas.concesionario.entidades.Comercial;
 
 public interface ComercialDao {
 
-	public long save(Comercial comercial);
+	public Comercial save(Comercial comercial);
 
 	public long delete(long idComercial);
 

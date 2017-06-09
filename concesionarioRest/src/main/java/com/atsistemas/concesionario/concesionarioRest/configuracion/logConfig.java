@@ -13,7 +13,7 @@ import org.springframework.web.filter.CommonsRequestLoggingFilter;
 @EnableAspectJAutoProxy
 public class logConfig {
 	
-	// Logeo de peticiones
+	// Logeo de peticiones Rest
 	@Bean
 	public CommonsRequestLoggingFilter requestLoggingFilter() {
 		CommonsRequestLoggingFilter crlf = new CommonsRequestLoggingFilter();
@@ -42,6 +42,7 @@ public class logConfig {
 		// pointcut.setExpression("execution(public * *(..))");
 		// pointcut.setExpression("execution(public com.ats.test.*.*(..))");
 		pointcut.setExpression("within(com.atsistemas.concesionario..*)");
+		
 		return new DefaultPointcutAdvisor(pointcut, customizableTraceInterceptor());
 	}
 }

@@ -11,9 +11,14 @@ import com.atsistemas.concesionario.interfaces.servicios.VehiculoServicio;
 
 @Service
 public class ServicioVehiculo implements VehiculoServicio {
-
-	@Autowired
+	
 	private VehiculoDao vehiculoDao;
+	
+	@Autowired
+	public ServicioVehiculo(VehiculoDao vehiculoDao) {
+		super();
+		this.vehiculoDao = vehiculoDao;
+	}
 
 	public long alta(Vehiculo vehiculo) {
 		return ((Vehiculo)vehiculoDao.save(vehiculo)).getId();
@@ -34,9 +39,9 @@ public class ServicioVehiculo implements VehiculoServicio {
 	public List<Vehiculo> consultarTodos() {
 		return vehiculoDao.findAll();
 	}
-
-	public void setVehiculoDao(VehiculoDao vehiculoDao) {
-		this.vehiculoDao = vehiculoDao;
-	}
+//
+//	public void setVehiculoDao(VehiculoDao vehiculoDao) {
+//		this.vehiculoDao = vehiculoDao;
+//	}
 
 }

@@ -6,7 +6,7 @@ import com.atsistemas.concesionario.entidades.Pedido;
 
 public interface PedidoDao {
 
-	public long save(Pedido pedido);
+	public Pedido save(Pedido pedido);
 
 	public long delete(long idPedido);
 
