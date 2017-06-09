@@ -20,6 +20,14 @@ public class ServicioFactura implements FacturaServicio {
 	@Autowired
 	private FacturaDao facturaDao;
 
+	public void setPedidoDao(PedidoDao pedidoDao) {
+		this.pedidoDao = pedidoDao;
+	}
+
+	public void setFacturaDao(FacturaDao facturaDao) {
+		this.facturaDao = facturaDao;
+	}
+
 	public long CobroDeFacturas(long idFactura) {
 
 		Factura factura = facturaDao.findOne(idFactura);

@@ -2,16 +2,23 @@ package com.atsistemas.concesionario.servicios;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.atsistemas.concesionario.entidades.Comercial;
 import com.atsistemas.concesionario.interfaces.persistencia.ComercialDao;
 import com.atsistemas.concesionario.interfaces.servicios.ComercialServicio;
 
 public class ServicioComercial implements ComercialServicio {
 
+	@Autowired
 	private ComercialDao comercialDao;
 
+	public void setComercialDao(ComercialDao comercialDao) {
+		this.comercialDao = comercialDao;
+	}
+
 	public long alta(Comercial comercial) {
-		return ((Comercial)comercialDao.save(comercial)).getId();
+		return ((Comercial) comercialDao.save(comercial)).getId();
 	}
 
 	public long baja(long idComercial) {
@@ -19,7 +26,7 @@ public class ServicioComercial implements ComercialServicio {
 	}
 
 	public long modificacion(Comercial comercial) {
-		return ((Comercial)comercialDao.save(comercial)).getId();
+		return ((Comercial) comercialDao.save(comercial)).getId();
 	}
 
 	public Comercial consultaPorId(long id) {
@@ -28,10 +35,6 @@ public class ServicioComercial implements ComercialServicio {
 
 	public List<Comercial> consultarTodos() {
 		return comercialDao.findAll();
-	}
-
-	public void setComercialDao(ComercialDao comercialDao) {
-		this.comercialDao = comercialDao;
 	}
 
 }

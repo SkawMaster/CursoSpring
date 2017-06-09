@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.atsistemas.concesionario.entidades.Vehiculo;
 import com.atsistemas.concesionario.interfaces.persistencia.VehiculoDao;
+import com.atsistemas.concesionario.interfaces.servicios.VehiculoServicio;
 import com.atsistemas.concesionario.servicios.ServicioVehiculo;
 
 @RestController
@@ -20,11 +21,11 @@ public class ControladorVehiculo {
 
 	static final String BASE_URL = "/vehiculos";
 
-	private ServicioVehiculo servicioVehiculo;
+	private VehiculoServicio vehiculoServicio;
 
 	@Autowired
-	public ControladorVehiculo(ServicioVehiculo servicioVehiculo) {
-		this.servicioVehiculo = servicioVehiculo;
+	public ControladorVehiculo(VehiculoServicio vehiculoServicio) {
+		this.vehiculoServicio = vehiculoServicio;
 	}
 
 	/**
@@ -42,7 +43,7 @@ public class ControladorVehiculo {
 			// <S extends T> S save(S entity), hay que hacer un cast para
 			// devolver lo que queramos, ya que recibiremos por defecto el
 			// objeto que insertemos en la tabla destino
-			return servicioVehiculo.alta(vehiculo);
+			return vehiculoServicio.alta(vehiculo);
 		} else {
 			return (0l);
 		}
@@ -58,7 +59,7 @@ public class ControladorVehiculo {
 	public long baja(@PathVariable("idVehiculo") long idVehiculo) {
 
 		if (idVehiculo > 0) {
-			servicioVehiculo.baja(idVehiculo);
+			vehiculoServicio.baja(idVehiculo);
 			return idVehiculo;
 		} else
 			return 0l;
@@ -78,7 +79,7 @@ public class ControladorVehiculo {
 			// <S extends T> S save(S entity), hay que hacer un cast para
 			// devolver lo que queramos, ya que recibiremos por defecto el
 			// objeto que insertemos en la tabla destino
-			return servicioVehiculo.modificacion(vehiculo);
+			return vehiculoServicio.modificacion(vehiculo);
 		} else {
 			return 0l;
 		}
@@ -94,7 +95,7 @@ public class ControladorVehiculo {
 	public Vehiculo consultaPorId(@PathVariable("idVehiculo") long idVehiculo) {
 
 		Vehiculo vehiculoRecuperado;
-		vehiculoRecuperado = servicioVehiculo.consultaPorId(idVehiculo);
+		vehiculoRecuperado = vehiculoServicio.consultaPorId(idVehiculo);
 
 		return vehiculoRecuperado;
 	}
@@ -108,7 +109,7 @@ public class ControladorVehiculo {
 	public List<Vehiculo> consultarTodos() {
 
 		List<Vehiculo> listaRecuperada;
-		listaRecuperada = servicioVehiculo.consultarTodos();
+		listaRecuperada = vehiculoServicio.consultarTodos();
 
 		return listaRecuperada;
 	}
