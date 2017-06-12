@@ -10,6 +10,10 @@ import com.atsistemas.concesionario.entidades.Vehiculo;
 
 public class VehiculoTest {
 
+	/* JSON
+	 * { "descripcion": "Coche fantástico", "modelo": "Trans Am Firebird",
+	 * "color": "Negro", "motor": "5700CC", "precio": 20000 }
+	 */
 	private Vehiculo vehiculoTest;
 
 	@Before

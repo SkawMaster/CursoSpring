@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Factura implements Serializable {
 
@@ -23,13 +25,14 @@ public class Factura implements Serializable {
 	@GeneratedValue
 	private long id;
 	
-	@Column
+	@Column(nullable = false)
 	private Date fecha;
 	
-	@Column
+	@Column(nullable = false)
 	private float total;
 	
 	@OneToOne
+	@JsonIgnoreProperties ({"vehiculo","comercial","cliente", "factura"})
 	private Pedido pedido;
 	
 	@Enumerated(EnumType.STRING)

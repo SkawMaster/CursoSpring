@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.NotFound;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Pedido implements Serializable {
 
@@ -26,21 +30,25 @@ public class Pedido implements Serializable {
 	private long id;
 	
 	@ManyToOne
+	@JsonIgnoreProperties ({"pedido","comercial"})
 	private Cliente cliente;
 	
 	@ManyToOne
+	@JsonIgnoreProperties ({"pedido","cliente"})
 	private Comercial comercial;
 	
 	@ManyToOne
+	@JsonIgnoreProperties ({"pedido"})
 	private Vehiculo vehiculo;
 	
-	@Column
+	@Column(nullable = false)
 	private Date fecha;
 	
 	@Enumerated(EnumType.STRING)
 	private EstadoPedido estado;
 	
 	@OneToOne
+	@JsonIgnoreProperties ({"pedido"})
 	private Factura factura;
 
 	public Pedido() {

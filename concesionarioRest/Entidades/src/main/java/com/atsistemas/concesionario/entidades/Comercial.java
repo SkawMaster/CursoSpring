@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Comercial implements Serializable {
 
@@ -21,26 +23,29 @@ public class Comercial implements Serializable {
 	@GeneratedValue
 	private long id;
 
-	@Column
+	@Column(nullable = false)
 	private String nombre;
 
-	@Column
+	@Column(nullable = false)
 	private String correo;
 
-	@Column
+	@Column(nullable = false)
 	private String telefono;
 
 	@OneToMany
+	@JsonIgnoreProperties({ "pedido", "comercial" })
 	private List<Cliente> clientes;
 
 	@OneToMany
+	@JsonIgnoreProperties({ "vehiculo", "comercial", "cliente", "factura" })
 	private List<Pedido> pedidos;
 
 	public Comercial() {
 		super();
 	}
 
-	public Comercial(long id, String nombre, String correo, String telefono, List<Cliente> clientes, List<Pedido> pedidos) {
+	public Comercial(long id, String nombre, String correo, String telefono, List<Cliente> clientes,
+			List<Pedido> pedidos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;

@@ -18,6 +18,11 @@ import com.atsistemas.concesionario.entidades.Vehiculo;
 
 public class ClienteTest {
 
+	/** JSON
+	 * { "id":1, "nombre":"Victor Herrero Cazurro", "correo":"vhc@lol.juas",
+	 * "telefono":"900000000", "pedidos":[] }
+	 */
+
 	private Cliente clienteTest;
 	private ArrayList<Pedido> listaPedidoTest;
 
@@ -105,7 +110,7 @@ public class ClienteTest {
 		listaPedidoTest.add(pedidoTest);
 		listaPedidoTest.add(pedidoTest);
 		clienteTest.setPedidos(listaPedidoTest);
-		
+
 		assertTrue(10l == clienteTest.getPedidos().get(1).getId());
 	}
 
