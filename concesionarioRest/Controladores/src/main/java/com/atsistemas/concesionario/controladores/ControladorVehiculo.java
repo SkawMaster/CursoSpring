@@ -39,13 +39,9 @@ public class ControladorVehiculo {
 	public long alta(@RequestBody Vehiculo vehiculo) {
 
 		if (vehiculo != null) {
-			// Como la implementación de save de JpaRepository devuelve un tipo
-			// <S extends T> S save(S entity), hay que hacer un cast para
-			// devolver lo que queramos, ya que recibiremos por defecto el
-			// objeto que insertemos en la tabla destino
 			return vehiculoServicio.alta(vehiculo);
 		} else {
-			return (0l);
+			return (0L);
 		}
 	}
 
@@ -62,7 +58,7 @@ public class ControladorVehiculo {
 			vehiculoServicio.baja(idVehiculo);
 			return idVehiculo;
 		} else
-			return 0l;
+			return 0L;
 	}
 
 	/**
@@ -75,13 +71,9 @@ public class ControladorVehiculo {
 	public long modificacion(@RequestBody Vehiculo vehiculo) {
 
 		if (vehiculo != null) {
-			// Como la implementación de save de JpaRepository devuelve un tipo
-			// <S extends T> S save(S entity), hay que hacer un cast para
-			// devolver lo que queramos, ya que recibiremos por defecto el
-			// objeto que insertemos en la tabla destino
 			return vehiculoServicio.modificacion(vehiculo);
 		} else {
-			return 0l;
+			return 0L;
 		}
 	}
 
