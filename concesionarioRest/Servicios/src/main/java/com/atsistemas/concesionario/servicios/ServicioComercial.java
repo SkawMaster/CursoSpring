@@ -3,11 +3,13 @@ package com.atsistemas.concesionario.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.atsistemas.concesionario.entidades.Comercial;
 import com.atsistemas.concesionario.interfaces.persistencia.ComercialDao;
 import com.atsistemas.concesionario.interfaces.servicios.ComercialServicio;
 
+@Service
 public class ServicioComercial implements ComercialServicio {
 
 	@Autowired

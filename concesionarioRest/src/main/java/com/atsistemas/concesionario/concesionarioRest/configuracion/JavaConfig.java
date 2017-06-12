@@ -21,10 +21,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScans({
 	@ComponentScan("com.atsistemas.concesionario")
 })
-@EnableWebMvc
+@EnableWebMvc				// Activamos MVC para gestionar el RequestDispatcher
 @EnableTransactionManagement // Anotamos la activación de la gestión de Transacciones
 @EnableJpaRepositories(basePackages="com.atsistemas.concesionario.persistencia") 	// Anotamos la activación de la gestión de repositorios para el paquete 
-																			// que contiene la capa de persistencia.
+																					// que contiene la capa de persistencia.
 public class JavaConfig {
 
 	// 1º Necesitamos un Jpa(TransactionManager)
