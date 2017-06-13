@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.atsistemas.concesionario</groupId>
+  <artifactId>ProyectoGlobal</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Proyecto Global</name>
+  <description>Proyecto que engloba la parte Rest y la parte Web para facilitar las tareas maven</description>
+  <modules>
+  	<module>concesionarioRest</module>
+  	<module>concesionarioRest/Controladores</module>
+  	<module>concesionarioRest/Entidades</module>
+  	<module>concesionarioRest/Interfaces</module>
+  	<module>concesionarioRest/Persistencia</module>
+  	<module>concesionarioRest/Servicios</module>
+  </modules>
+</project>

@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.atsistemas.concesionario.persistencia</groupId>
+	<artifactId>Persistencia</artifactId>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<target>1.8</target>
+					<source>1.8</source>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.11.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atsistemas.concesionario.interfaces</groupId>
+			<artifactId>Interfaces</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>			
+	</dependencies>
+	<parent>
+		<groupId>com.atsistemas.concesionario</groupId>
+		<artifactId>ProyectoGlobal</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+</project>
