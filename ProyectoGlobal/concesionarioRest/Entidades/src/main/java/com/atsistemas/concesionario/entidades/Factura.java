@@ -13,6 +13,14 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Representa una factura con los siguientes atributos:
+ * 
+ * long id; Date fecha; float total; Pedido pedido; EstadoFactura estado;
+ * 
+ * @author lmmiralles
+ *
+ */
 @Entity
 public class Factura implements Serializable {
 
@@ -24,17 +32,17 @@ public class Factura implements Serializable {
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column(nullable = false)
 	private Date fecha;
-	
+
 	@Column(nullable = false)
 	private float total;
-	
+
 	@OneToOne
-	@JsonIgnoreProperties ({"vehiculo","comercial","cliente", "factura"})
+	@JsonIgnoreProperties({ "vehiculo", "comercial", "cliente", "factura" })
 	private Pedido pedido;
-	
+
 	@Enumerated(EnumType.STRING)
 	private EstadoFactura estado;
 

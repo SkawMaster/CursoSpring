@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -31,12 +31,12 @@ public class PedidoTest {
 	private SimpleDateFormat simpleDateFormat;
 
 	@Before
-	public void inicializarTest() throws ParseException {
+	public void setUp() throws ParseException {
 		pedidoTest = new Pedido(01l, new Cliente(), new Comercial(), new Vehiculo(), new Date(), EstadoPedido.SIN_STOCK,
 				new Factura());
 
 		clienteTest = new Cliente(01l, "Victor Herrero Cazurro", "vhc@lol.juas", "900000000", null);
-		List<Cliente> listaClientesTest = new ArrayList<Cliente>();
+		Set<Cliente> listaClientesTest = new LinkedHashSet<Cliente>();
 		listaClientesTest.add(clienteTest);
 
 		comercialTest = new Comercial(01l, "Luis Miguel Miralles Albero", "lmma@lol.juas", "900000000000",

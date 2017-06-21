@@ -17,7 +17,7 @@ public class VehiculoTest {
 	private Vehiculo vehiculoTest;
 
 	@Before
-	public void inicializarTest() {
+	public void setUp() {
 		vehiculoTest = new Vehiculo(01l, "Coche fantástico", "Trans Am Firebird", "Negro", "5700CC", 20000f);
 	}
 

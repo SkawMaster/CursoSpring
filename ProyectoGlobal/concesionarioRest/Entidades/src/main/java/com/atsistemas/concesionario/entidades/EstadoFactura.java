@@ -6,5 +6,5 @@ package com.atsistemas.concesionario.entidades;
  *
  */
 public enum EstadoFactura {
-	COBRADA, NO_COBRADA, COBRO_FALLIDO;
+	COBRADA, NO_COBRADA, COBRO_FALLIDO, ERROR;
 }

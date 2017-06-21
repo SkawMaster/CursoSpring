@@ -20,13 +20,13 @@ public class ServicioVehiculo implements VehiculoServicio {
 	}
 
 	
-	public long alta(Vehiculo vehiculo) {
+	public long alta(Vehiculo vehiculo) throws Exception{
 		// Como la implementación de save de JpaRepository devuelve un tipo
 		// <S extends T> S save(S entity), hay que hacer un cast para
 		// devolver lo que queramos, ya que recibiremos por defecto el
 		// objeto que insertemos en la tabla destino
 		if (vehiculo != null) {
-			return ((Vehiculo) vehiculoDao.save(vehiculo)).getId();
+			return ((Vehiculo) vehiculoDao.save(vehiculo)).getId();			
 		} else {
 			return (0L);
 		}

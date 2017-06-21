@@ -1,0 +1,43 @@
+JEE -> 	Es una plataforma de programación parte de la Plataforma Java para desarrollar y ejecutar software de aplicaciones en el 
+		lenguaje de programación Java. 
+		Permite utilizar arquitecturas de N capas distribuidas y se apoya ampliamente en componentes de software modulares 
+		ejecutándose sobre un servidor de aplicaciones.
+	EJBs -> cómo los servidores de aplicaciones proveen objetos desde el lado del servidor, que son precisamente los EJB:
+	JSF - 	Java Server Faces (Implentaciones) JSF es un framework MVC (Modelo-Vista-Controlador) basado en el API de Servlets 
+			que proporciona un conjunto de componentes en forma de etiquetas definidas en páginas XHTML mediante 
+			el framework Facelets. Facelets se define en la especificación 2 de JSF como un elemento 
+			fundamental de JSF que proporciona características de plantillas y de creación de componentes compuestos. 
+			Antes de la especificación actual se utilizaba JSP para componer las páginas JSF.
+				myFaces
+				RichFaces
+				PrimeFaces
+	JSP - 	Una página JSP contiene código HTML con etiquetas especiales y código Java. La página se procesa en una pasada de 
+			arriba a abajo y se convierte en un servlet. Los elementos JSP se procesan en el orden en que aparecen y se 
+			transforman en código Java que se incluye en el servlet. Una vez realizada la conversión, las peticiones de los 
+			usuarios a la página provocan la ejecución del servlet.
+	JPA - 	(Java Persistence API, API de Persistencia en Java) es una abstracción sobre JDBC que nos permite realizar dicha 
+			correlación de forma sencilla, realizando por nosotros toda la conversión entre nuestros objetos y las tablas de 
+			una base de datos. Esta conversión se llama ORM (Object Relational Mapping - Mapeo Relacional de Objetos), y puede 
+			configurarse a través de metadatos (mediante xml o anotaciones). Por supuesto, JPA también nos permite seguir el 
+			sentido inverso, creando objetos a partir de las tablas de una base de datos, y también de forma transparente. A 
+			estos objetos los llamaremos desde ahora entidades (entities).
+
+			JPA establece una interface común que es implementada por un proveedor de persistencia de nuestra elección (como 
+			Hibernate, Eclipse Link, etc), de manera que podemos elegir en cualquier momento el proveedor que más se adecue a 
+			nuestras necesidades. Así, es el proveedor quién realiza el trabajo, pero siempre funcionando bajo la API de JPA.
+
+Tomcat - 	Tomcat es un contenedor web con soporte de servlets y JSPs. Tomcat no es un servidor de aplicaciones, como JBoss o JOnAS.
+
+Filter
+Servlets
+JSP
+
+gulp  - ant - Gestores de tareas
+grunt - ant 
+node
+
+webpack - maven - módulos
+
+Agilismo
+	reuniones diarias
+	sprints

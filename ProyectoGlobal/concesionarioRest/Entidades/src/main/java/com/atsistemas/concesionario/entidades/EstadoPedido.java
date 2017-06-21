@@ -6,5 +6,5 @@ package com.atsistemas.concesionario.entidades;
  *
  */
 public enum EstadoPedido {
-	EN_PROCESO, ENTREGADO, SIN_STOCK;
+	EN_PROCESO, ENTREGADO, SIN_STOCK, ERROR;
 }

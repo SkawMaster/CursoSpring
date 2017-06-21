@@ -26,7 +26,7 @@ public class FacturaTest {
 	private SimpleDateFormat simpleDateFormat;
 
 	@Before
-	public void inicializarTest() throws ParseException {
+	public void setUp() throws ParseException {
 		facturaTest = new Factura(01l, new Date(), 0f, new Pedido(), EstadoFactura.NO_COBRADA);
 		pedidoTest = new Pedido(01l, new Cliente(), new Comercial(), new Vehiculo(), new Date(), EstadoPedido.SIN_STOCK,
 				new Factura());

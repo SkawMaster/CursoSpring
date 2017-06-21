@@ -4,15 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.atsistemas.concesionario.entidades.Comercial;
 import com.atsistemas.concesionario.interfaces.servicios.ComercialServicio;
-import com.atsistemas.concesionario.interfaces.servicios.VehiculoServicio;
 
 @RestController
 @RequestMapping(value = ControladorComercial.BASE_URL)
@@ -51,7 +50,7 @@ public class ControladorComercial {
 	 * @return
 	 */
 	@RequestMapping(value = "/{idComercial}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public long baja(@RequestParam long idComercial) {
+	public long baja(@PathVariable("idComercial") long idComercial) {
 		
 		if (idComercial > 0) {
 			return comercialServicio.baja(idComercial);
@@ -83,7 +82,7 @@ public class ControladorComercial {
 	 * @return
 	 */
 	@RequestMapping(value = "/{idComercial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Comercial consultaPorId(@RequestParam long idComercial) {
+	public Comercial consultaPorId(@PathVariable("idComercial") long idComercial) {
 		
 		Comercial comercialDevuelto = new Comercial();
 		comercialDevuelto = comercialServicio.consultaPorId(idComercial);

@@ -12,8 +12,9 @@ public interface VehiculoServicio {
 	 * 
 	 * @param vehiculo
 	 * @return
+	 * @throws Exception 
 	 */
-	public long alta(Vehiculo vehiculo);
+	public long alta(Vehiculo vehiculo) throws Exception;
 	
 	/**
 	 * Elimina de BBDD el vehículo con el identificador idVehiculo

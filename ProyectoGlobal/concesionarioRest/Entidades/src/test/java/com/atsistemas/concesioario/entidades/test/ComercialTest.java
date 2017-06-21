@@ -3,10 +3,9 @@ package com.atsistemas.concesioario.entidades.test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,19 +25,20 @@ public class ComercialTest {
 	 */
 	
 	private Comercial comercialTest;
-	private Collection<Pedido> listaPedidoTest;
-	private Collection<Cliente> listaClienteTest;
-
+	private Set<Pedido> listaPedidoTest;
+	private Set<Cliente> listaClienteTest;
+	private Cliente clienteTest;
+	
 	@Before
-	public final void inicializarTest() {
+	public final void setUp() {
 
 		Pedido pedidoTest = new Pedido(01l, new Cliente(), new Comercial(), new Vehiculo(), new Date(),
 				EstadoPedido.SIN_STOCK, new Factura());
 		listaPedidoTest = new LinkedHashSet<Pedido>();
 		listaPedidoTest.add(pedidoTest);
 
-		Cliente clienteTest = new Cliente(01l, "Victor Herrero Cazurro", "vhc@lol.juas", "900000000", listaPedidoTest);
-		listaClienteTest = new ArrayList<Cliente>();
+		clienteTest = new Cliente(01l, "Victor Herrero Cazurro", "vhc@lol.juas", "900000000", listaPedidoTest);
+		listaClienteTest = new LinkedHashSet<Cliente>();
 		listaClienteTest.add(clienteTest);
 
 		comercialTest = new Comercial(01l, "Luis Miguel Miralles Albero", "lmma@lol.juas", "900000000000",
@@ -102,35 +102,41 @@ public class ComercialTest {
 		assertTrue("test".equals(comercialTest.getTelefono()));
 	}
 
-//	@Test
-//	public final void testGetClientes() {
-//		assertTrue("Victor Herrero Cazurro".equals(comercialTest.getClientes().get(0).getNombre()));
-//	}
+	@Test
+	public final void testGetClientes() {
+		assertTrue(comercialTest.getClientes().contains(clienteTest));
+	}
 
-//	@Test
-//	public final void testSetClientes() {
-//		Cliente clienteTest = new Cliente(02l, "Tony Stark", "ts@vengadores.com", "969696969", null);
-//		listaClienteTest = new ArrayList<Cliente>();
-//		listaClienteTest.add(clienteTest);
-//		comercialTest.setClientes(listaClienteTest);
-//		assertTrue("Tony Stark".equals(comercialTest.getClientes().get(0).getNombre()));
-//	}
+	@Test
+	public final void testSetClientes() {
+		Cliente clienteTest = new Cliente(02l, "Tony Stark", "ts@vengadores.com", "969696969", null);
+		listaClienteTest = new LinkedHashSet<Cliente>();
+		listaClienteTest.add(clienteTest);
+		comercialTest.setClientes(listaClienteTest);
+		assertTrue(comercialTest.getClientes().contains(clienteTest));
+	}
 
-//	@Test
-//	public final void testGetPedidos() {
-//		assertNotNull(comercialTest.getPedidos().get(0));
-//	}
+	@Test
+	public final void testGetPedidos() {
+		assertNotNull(comercialTest.getPedidos());
+	}
 
-//	@Test
-//	public final void testSetPedidos() {
-//		Pedido pedidoTest = new Pedido(01l, new Cliente(), new Comercial(), new Vehiculo(), new Date(),
-//				EstadoPedido.SIN_STOCK, new Factura());
-//		listaPedidoTest = new ArrayList<Pedido>();
-//		listaPedidoTest.add(pedidoTest);
-//		listaPedidoTest.add(pedidoTest);
-//		comercialTest.setPedidos(listaPedidoTest);
-//
-//		assertNotNull(comercialTest.getPedidos().get(1));
-//	}
+	@Test
+	public final void testSetPedidos() {
+		listaPedidoTest = new LinkedHashSet<Pedido>();
+		
+		Pedido pedidoTest = new Pedido(01l, new Cliente(), new Comercial(), new Vehiculo(), new Date(),
+				EstadoPedido.SIN_STOCK, new Factura());
+		
+		listaPedidoTest.add(pedidoTest);
+		
+		pedidoTest = new Pedido(02l, new Cliente(), new Comercial(), new Vehiculo(), new Date(),
+				EstadoPedido.SIN_STOCK, new Factura());
+		
+		listaPedidoTest.add(pedidoTest);
+		comercialTest.setPedidos(listaPedidoTest);
+
+		assertTrue(comercialTest.getPedidos().size() == 2);
+	}
 
 }

@@ -2,7 +2,7 @@ package com.atsistemas.concesionario.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,18 +36,18 @@ public class Comercial implements Serializable {
 
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "pedido", "comercial" })
-	private Collection<Cliente> clientes;
+	private Set<Cliente> clientes;
 
 	@OneToMany(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "vehiculo", "comercial", "cliente", "factura" })
-	private Collection<Pedido> pedidos;
+	private Set<Pedido> pedidos;
 
 	public Comercial() {
 		super();
 	}
 
-	public Comercial(long id, String nombre, String correo, String telefono, Collection<Cliente> clientes,
-			Collection<Pedido> pedidos) {
+	public Comercial(long id, String nombre, String correo, String telefono, Set<Cliente> clientes,
+			Set<Pedido> pedidos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -89,19 +89,19 @@ public class Comercial implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public Collection<Cliente> getClientes() {
+	public Set<Cliente> getClientes() {
 		return clientes;
 	}
 
-	public void setClientes(Collection<Cliente> clientes) {
+	public void setClientes(Set<Cliente> clientes) {
 		this.clientes = clientes;
 	}
 
-	public Collection<Pedido> getPedidos() {
+	public Set<Pedido> getPedidos() {
 		return pedidos;
 	}
 
-	public void setPedidos(Collection<Pedido> pedidos) {
+	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
 
